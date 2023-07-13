@@ -26,8 +26,19 @@ console.log(twoDimensionalProduct(arr2)); // 88
 */
 
 let twoDimensionalProduct = function(arr) {
-    // Your code here
+  let accumulator = 1;
+
+  arr.forEach( function(row) {
+
+      row.forEach( function(column) {
+          accumulator *= column;
+      })
+
+  })
+
+  return accumulator;
 };
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {

@@ -15,7 +15,14 @@ console.log(unique(['a', 'b', 'c', 'b'])); // ['a', 'b', 'c']
 */
 
 let unique = function(array) {
-    // Your code here
+    let uniqueEls = array.reduce( function(accumulator, element) {
+        if (!accumulator.includes(element)) {
+            accumulator.push(element);
+        }
+        return accumulator;
+    },[]);
+
+    return uniqueEls;
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
@@ -24,4 +31,4 @@ try {
     module.exports = unique;
 } catch (e) {
     module.exports = null;
-}
+}

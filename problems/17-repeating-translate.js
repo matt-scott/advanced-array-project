@@ -28,13 +28,32 @@ console.log(repeatingTranslate("her family flew to France"));   // "herer family
 
 */
 
-let repeatingTranslate = function(sentence) {
-    // Your code here
+let translateWord = function(word) {
+    let vowels = ('aeiou');
+
+    // if word is less than 3 characters, return the word
+    if (word.length < 3) {
+        return word;
+    }
+
+    // if word ends in a vowel, return word repeated twice
+    if (vowels.includes(word[word.length - 1])) {
+        return word + word;
+    }
+
+    // word ends in a consonant, repeat all letters that come after the
+    // word's last vowel, including the last vowel itself
+    for (let i = word.length; i >= 0; i--) {
+        if (vowels.includes(word[i])) {
+            let suffix = word.slice(i);
+            return word + suffix;
+        }
+    }
+
 };
 
-
-let translateWord = function(word) {
-    // Your code here
+let repeatingTranslate = function(sentence) {
+    return sentence.split(' ').map(translateWord).join(' ');
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
@@ -43,4 +62,4 @@ try {
     module.exports = repeatingTranslate;
 } catch (e) {
     module.exports = null;
-}
+}

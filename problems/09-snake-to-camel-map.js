@@ -16,7 +16,17 @@ console.log(snakeToCamel('APp_ACADEMY_iS_cOol')); // 'AppAcademyIsCool'
 */
 
 function snakeToCamel(str) {
-    // Your code here
+    let strArray = str.split('_');
+
+    let caseChange = strArray.map( function(element) {
+        let fistLetter = element.charAt(0).toUpperCase();
+        let wordEnding = element.slice(1).toLowerCase();
+        let cleanedWord = fistLetter + wordEnding;
+        return cleanedWord;
+    });
+
+    return caseChange.join('');
+
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
@@ -25,4 +35,4 @@ try {
     module.exports = snakeToCamel;
 } catch (e) {
     module.exports = null;
-}
+}
